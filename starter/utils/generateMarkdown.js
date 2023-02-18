@@ -2,30 +2,38 @@
 function generateMarkdown(answers) {
   return `# ${answers.title}
 
-  ## Description
+## Description
   ${answers.description}
   
-  ## Contents
-  ${answers.contents}
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+## Contents
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [License](#license)
+  - [Tests](#tests)
+  - [Questions](#questions)
 
-  ## Installation
-  ${answers.installation}
-
-  ## Usage
+## Usage
   ${answers.usage}
 
-  ## Contributors
-  ${answers.contributing}
+  Here is a link to the deployed webpage, <${answers.deployedLink}>
+  
+ ## Installation
+ ${answers.installation}
 
-  ## Tests
+## Credits
+  ${answers.credit}
+
+## License
+  ${answers.license} 
+
+### Tests
   ${answers.tests}
 
-  ## Questions
-  ${answers.userQuestions}
+### Questions
+  You can email any questions you have to me at <${answers.userQuestions}>
+
+  You can checkout my GitHub here <${answers.github}>
 
 `;
 }

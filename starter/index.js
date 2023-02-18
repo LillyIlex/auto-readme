@@ -17,17 +17,12 @@ const promptUser = () => {
             {
                 type: "input",
                 name: "description",
-                message: "Enter prjoect description:"
-            },
-            {
-                type: "input",
-                name: "contents",
-                message: "Enter headings for contents:"
+                message: "Enter project description:"
             },
             {
                 type: "input",
                 name: "installation",
-                message: "Enter instrcutions for installation:"
+                message: "Enter instructions for installation:"
             },
             {
                 type: "input",
@@ -35,14 +30,15 @@ const promptUser = () => {
                 message: "Enter instruction on usage:"
             },
             {
-                type: "input",
+                type: "rawlist",
                 name: "license",
-                message: "Enter license info:"
+                message: "Enter license info:",
+                choices: ["N/A", "MIT", "GNU"]
             },
             {
                 type: "input",
-                name: "contributing",
-                message: "Enter your contributors"
+                name: "credit",
+                message: "Enter the contributors you would like to give credit to:"
             },
             {
                 type: "input",
@@ -53,6 +49,16 @@ const promptUser = () => {
                 type: "input",
                 name: "userQuestions",
                 message: "Enter an email address for questions:"
+            },
+            {
+                type: "input",
+                name: "github",
+                message: "Enter your GitHub link:"
+            },
+            {
+                type: "input",
+                name: "deployedLink",
+                message: "Enter the link to the deployed webpage:"
             },
         ])
         .then((answers) => {
@@ -65,17 +71,3 @@ const promptUser = () => {
     }
 
 promptUser()
-// array of questions for user
-/*
-// function to write README file
-function writeToFile(fileName, data) {
-}
-
-// function to initialize program
-function init() {
-
-}
-
-// function call to initialize program
-init();
-*/
