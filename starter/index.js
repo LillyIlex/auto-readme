@@ -4,15 +4,15 @@ const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 
+//question prompt function with inquirer
 const promptUser = () => {
 
     inquirer
         .prompt([
-            /* Pass your questions in here */
             {
                 type: "input",
                 name: "title",
-                message: "What is your title project?"
+                message: "What is your project title?"
             },
             {
                 type: "input",
@@ -32,8 +32,8 @@ const promptUser = () => {
             {
                 type: "rawlist",
                 name: "license",
-                message: "Enter license info:",
-                choices: ["N/A", "MIT", "GNU"]
+                message: "Select license type:",
+                choices: ["None", "MIT", "GPL", "Apache"]
             },
             {
                 type: "input",
@@ -59,12 +59,22 @@ const promptUser = () => {
                 type: "input",
                 name: "deployedLink",
                 message: "Enter the link to the deployed webpage:"
-            },
-        ])
-        .then((answers) => {
-            // let readMe = answers.description
-                // console.log(answers.description)
-    
+            }
+            //.then promise to get answers
+        ]).then((answers) => {
+//if else statement to display different license badges depending on user input
+            if (answers.license =  "MIT") {
+                answers.license = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+               } else if (answers.license = "GPL" ) {
+                 answers.license = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
+               }  else if (answers.license = "Apache") {
+                answers.license = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+               } else {
+                 answers.license = "None"
+               }
+// Process working directory, join the path to dist folder, and write Readme file in there. 
+// Call generate markdown function, passing in answers as data.
+// error function incase not functional
              fs.writeFile(path.join(process.cwd() + "/dist/",'readme.md'), generateMarkdown(answers), (err) => err && console.error(err))
         });
 
