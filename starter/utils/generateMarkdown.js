@@ -3,6 +3,9 @@
 function generateMarkdown(answers) {
   return `# ${answers.title}
 
+#### License
+  ${answers.license} 
+
 ## Description
   ${answers.description}
   
@@ -24,9 +27,6 @@ function generateMarkdown(answers) {
 
 ## Credits
   ${answers.credit}
-
-## License
-  ${answers.license} 
 
 ### Tests
   ${answers.tests}
