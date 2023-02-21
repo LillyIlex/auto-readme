@@ -3,7 +3,6 @@ const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-
 //question prompt function with inquirer
 const promptUser = () => {
 
